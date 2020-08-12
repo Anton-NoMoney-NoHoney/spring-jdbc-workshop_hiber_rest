@@ -1,8 +1,6 @@
 package org.shop.db;
 
-import org.shop.db.entity.OrderDetailEntity;
 import org.shop.db.entity.OrderEntity;
-import org.shop.dto.OrderDto;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
@@ -10,9 +8,6 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +17,6 @@ import java.util.List;
 @Repository
 public class OrdersRepository {
 
-    @PersistenceContext
     private final EntityManagerFactory entityManagerFactory;
 
     public OrdersRepository(EntityManagerFactory entityManagerFactory) {

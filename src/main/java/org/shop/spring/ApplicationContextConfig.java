@@ -1,14 +1,12 @@
 package org.shop.spring;
 
-import org.shop.db.OrdersRepository;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 
 @Configuration
 @ComponentScan("org.shop")
+@ImportResource(value = {"classpath:spring/application-context.xml"})
 public class ApplicationContextConfig {
-
 
 }
