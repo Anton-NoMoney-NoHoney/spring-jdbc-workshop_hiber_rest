@@ -1,17 +1,22 @@
 package org.shop.db.entity;
 
 
+
 import org.shop.dto.OrderDetailDto;
 import org.shop.dto.OrderDto;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+
 @Entity
 @Table(name = "orders")
 public class OrderEntity {
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -88,11 +93,15 @@ public class OrderEntity {
     }
 
     public OrderDto toDto() {
-        List<OrderDetailDto> orderDetailDtos = this.orderDetailEntities == null
-                ? null
-                : this.orderDetailEntities.stream().map(OrderDetailEntity::toDto).collect(toList());
+        List<OrderDetailDto> orderDetailDtos = new ArrayList<>();
+
+        for(OrderDetailEntity entitys: this.orderDetailEntities){
+            orderDetailDtos.add(entitys.toDto(entitys));
+        }
+
         return new OrderDto(this.id, this.name,this.client, orderDetailDtos);
     }
+
     public static OrderEntity toEntity(OrderDto dto) {
 
         List<OrderDetailEntity> orderDetailEntities =
@@ -102,5 +111,6 @@ public class OrderEntity {
                         .collect(toList());
         return new OrderEntity(dto.getId(), dto.getName(),dto.getClient(), orderDetailEntities);
     }
+
 
 }

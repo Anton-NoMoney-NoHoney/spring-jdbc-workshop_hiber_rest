@@ -1,11 +1,13 @@
 package org.shop.db.entity;
 
 
+
 import org.shop.dto.OrderDetailDto;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Entity
 @Table(name = "order_details")
@@ -58,14 +60,30 @@ public class OrderDetailEntity {
                 '}';
     }
 
+    public OrderDetailDto toDto(OrderDetailEntity entity) {
+
+        return new OrderDetailDto(entity.id, entity.name, entity.price);
+    }
+
     public OrderDetailDto toDto() {
+
         return new OrderDetailDto(this.id, this.name, this.price);
     }
 
     public OrderDetailEntity toEntity(Long id,String name,Double price) {
+
         return new OrderDetailEntity(id, name, price);
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }

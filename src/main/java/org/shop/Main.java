@@ -5,11 +5,9 @@ import org.shop.dto.OrderDetailDto;
 import org.shop.dto.OrderDto;
 import org.shop.service.OrdersService;
 import org.shop.service.impl.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +15,12 @@ import java.util.List;
 
 public class Main {
 
-
+    @Autowired
+     static OrdersService service;
 
     public static void main(String[] args) {
+
+
 
         ApplicationContext context = new ClassPathXmlApplicationContext("spring/application-context.xml");
         OrdersRepository ordersRepository = context.getBean("ordersRepository", OrdersRepository.class);

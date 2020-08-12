@@ -1,9 +1,11 @@
 package org.shop.service;
 
 import org.shop.dto.OrderDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface OrdersService {
 
     /**

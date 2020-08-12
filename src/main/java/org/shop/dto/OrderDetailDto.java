@@ -19,6 +19,7 @@ public class OrderDetailDto {
         this.price = price;
     }
 
+
     public long getId() {
         return id;
     }

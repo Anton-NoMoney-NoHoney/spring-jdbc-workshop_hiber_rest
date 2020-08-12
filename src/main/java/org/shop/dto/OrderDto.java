@@ -1,5 +1,7 @@
 package org.shop.dto;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 /**
@@ -12,6 +14,12 @@ public class OrderDto {
     private List<OrderDetailDto> orderDetails;
 
     public OrderDto() {
+    }
+
+    public OrderDto(long id, String name, String client) {
+        this.id = id;
+        this.name = name;
+        this.client = client;
     }
 
     public OrderDto(long id, String name, String client, List<OrderDetailDto> orderDetails) {
@@ -27,14 +35,7 @@ public class OrderDto {
         this.orderDetails = orderDetails;
     }
 
-    @Override
-    public String toString() {
-        return "OrderEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", orderDetailEntities=" + orderDetails +
-                '}';
-    }
+
 
     public long getId() {
         return id;
@@ -67,4 +68,6 @@ public class OrderDto {
     public void setClient(String client) {
         this.client = client;
     }
+
+
 }
